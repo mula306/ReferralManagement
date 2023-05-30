@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
 using ReferralAPI.Data;
 using ReferralAPI.Model;
-namespace ReferralAPI;
+
+namespace ReferralAPI.Endpoints;
 
 public static class ProviderEndpoints
 {

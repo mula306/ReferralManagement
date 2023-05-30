@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
 using ReferralAPI.Data;
 using ReferralAPI.Model;
-namespace ReferralAPI;
+
+namespace ReferralAPI.Endpoints;
 
 public static class SpecialtyEndpoints
 {
-    public static void MapSpecialtyEndpoints (this IEndpointRouteBuilder routes)
+    public static void MapSpecialtyEndpoints(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/api/Specialty").WithTags(nameof(Specialty));
 
@@ -47,7 +48,7 @@ public static class SpecialtyEndpoints
         {
             db.Specialty.Add(specialty);
             await db.SaveChangesAsync();
-            return TypedResults.Created($"/api/Specialty/{specialty.SpecialtyId}",specialty);
+            return TypedResults.Created($"/api/Specialty/{specialty.SpecialtyId}", specialty);
         })
         .WithName("CreateSpecialty")
         .WithOpenApi();

@@ -1,0 +1,37 @@
+﻿@page "/Referral/Edit/{id:int}"
+@model ReferralManagement.Pages.EditReferralModel
+@{
+    var referral = Model.Referral;
+}
+<div class="overview">
+    <div class="title">
+        <h2 class="section--title">Edit Referral</h2>
+    </div>
+    <div class="form-edit">
+        <form method="post">
+            <input type="hidden" asp-for="@referral.ReferralId" />
+
+            <label for="PatientId">PatientId</label>
+            <input type="text" asp-for="@referral.PatientId" />
+
+            <label for="referralDate">Referral Date</label>
+            <input type="date" asp-for="@referral.ReferralDate" />
+
+            <label for="referralReason">Referral Reason</label>
+            <input type="text" asp-for="@referral.ReferralReason" />
+
+            <label for="specialtyId">SpecialtyId</label>
+            <input type="text" asp-for="@referral.SpecailtyId" />
+
+            <label for="status">Status</label>
+            <input type="text" asp-for="@referral.Status" />
+
+            <label for="status">ProviderId (Auto Assigned if Blank)</label>
+            <input type="text" asp-for="@referral.ProviderId" />
+
+            <!-- Add inputs for other fields here -->
+
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </form>
+    </div>
+</div>

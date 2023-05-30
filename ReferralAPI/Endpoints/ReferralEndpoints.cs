@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
 using ReferralAPI.Data;
 using ReferralAPI.Model;
-namespace ReferralAPI;
+
+namespace ReferralAPI.Endpoints;
 
 public static class ReferralEndpoints
 {
-    public static void MapReferralEndpoints (this IEndpointRouteBuilder routes)
+    public static void MapReferralEndpoints(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/api/Referral").WithTags(nameof(Referral));
         var group1 = routes.MapGroup("/api/DynamicReferral").WithTags(nameof(DynamicReferral));
@@ -51,9 +52,9 @@ public static class ReferralEndpoints
         group.MapPost("/", async (Referral referral, ReferralAPIContext db) =>
         {
             // Retrieve all providers with the given specialty
-            
-            if(referral.ProviderId == 0)
-            { 
+
+            if (referral.ProviderId == 0)
+            {
                 var providers = db.Provider.Where(p => p.SpecialtyId == referral.SpecailtyId);
 
                 // Count the number of referrals for each provider
@@ -89,6 +90,6 @@ public static class ReferralEndpoints
         .WithName("DeleteReferral")
         .WithOpenApi();
 
-        
+
     }
 }

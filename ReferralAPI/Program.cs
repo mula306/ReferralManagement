@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ReferralAPI.Data;
-using ReferralAPI;
 using ReferralAPI.Model;
+using ReferralAPI.Endpoints;
 
 namespace ReferralAPI
 {

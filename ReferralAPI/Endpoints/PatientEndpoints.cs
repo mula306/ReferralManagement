@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ReferralAPI.Data;
 using ReferralAPI.Model;
 
-namespace ReferralAPI;
+namespace ReferralAPI.Endpoints;
 
 public static class PatientEndpoints
 {
