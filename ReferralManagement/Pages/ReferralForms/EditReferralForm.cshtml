@@ -1,0 +1,23 @@
+﻿@page "/ReferralForm/Edit/{id:int}"
+@model ReferralManagement.Pages.EditReferralFormModel
+@{
+    var dynamicReferral = Model.DynamicReferral;
+}
+
+<div class="overview">
+    <div class="title">
+        <h2 class="section--title">Referral Form Admin</h2>
+    </div>
+    <div class="form-edit">
+        <form method="post" asp-page-handler="Update">
+            <input type="hidden" asp-for="@dynamicReferral.DynamicReferralId" />
+            <label for="formName">Form Name</label>
+            <input type="text" asp-for="@dynamicReferral.ReferralName" />
+
+            <label for="json">Form</label>
+            <textarea asp-for="@dynamicReferral.ReferralJson" rows="25" cols="50"></textarea>
+
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </form>
+    </div>
+</div>

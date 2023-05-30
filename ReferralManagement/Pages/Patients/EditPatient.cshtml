@@ -1,0 +1,46 @@
+﻿@page "/Patient/Edit/{id:int}"
+@model ReferralManagement.Pages.EditPatientModel
+@{
+    var patient = Model.Patient;
+}
+
+<div class="overview">
+    <div class="title">
+        <h2 class="section--title">Edit Patient</h2>
+    </div>
+    <div class="form-edit">
+        <form method="post">
+            <input type="hidden" asp-for="@patient.PatientId" />
+
+            <label for="firstName">First Name</label>
+            <input type="text" asp-for="@patient.FirstName" />
+
+            <label for="lastName">Last Name</label>
+            <input type="text" asp-for="@patient.LastName" />
+
+            <label for="gender">Gender</label>
+            <input type="text" asp-for="@patient.Gender" />
+
+            <label for="dateOfBirth">DOB</label>
+            <input type="date" asp-for="@patient.DateOfBirth" />
+
+            <label for="address">Address</label>
+            <input type="text" asp-for="@patient.Address" />
+
+            <label for="phone">Phone</label>
+            <input type="text" asp-for="@patient.Phone" />
+
+            <label for="Email">Email</label>
+            <input type="email" asp-for="@patient.Email" />
+
+            <label for="RegistrationDate">RegistrationDate</label>
+            <input type="date" asp-for="@patient.RegistrationDate" />
+
+            <!-- Add inputs for other fields here -->
+
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+
+

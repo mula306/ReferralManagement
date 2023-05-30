@@ -1,0 +1,41 @@
+﻿@page
+@model ReferralManagement.Pages.Ref.ReferralsModel
+<div class="recent--patients">
+    <div class="title">
+        <h2 class="section--title">Recent Referrals</h2>
+    </div>
+    <a href="/Referral/Add" class="btn btn-primary">Add Referral</a>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ReferralId</th>
+                    <th>PatientId</th>
+                    <th>ProviderId</th>
+                    <th>ReferralDate</th>
+                    <th>ReferralReason</th>
+                    <th>SpecialtyId</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var referral in Model.Referrals)
+                {
+                    <tr>
+                        <td>@referral.ReferralId</td>
+                        <td>@referral.PatientId</td>
+                        <td>@referral.ProviderId</td>
+                        <td>@referral.ReferralDate</td>
+                        <td>@referral.ReferralReason</td>
+                        <td>@referral.SpecailtyId</td>
+                        <td>@referral.Status</td>
+                        <td>
+                            <a href="/Referral/Edit/@referral.ReferralId" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

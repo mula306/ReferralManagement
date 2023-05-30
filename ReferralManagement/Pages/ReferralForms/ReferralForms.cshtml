@@ -1,0 +1,32 @@
+﻿@page "/ReferralForms"
+@model ReferralManagement.Pages.ReferralFormsModel
+@{
+}
+<div class="recent--patients">
+    <div class="title">
+        <h2 class="section--title">Recent Patients</h2>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>ReferralId</th>
+                    <th>Form Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dynamicReferral in Model.DynamicReferrals)
+                {
+                    <tr>
+                        <td>@dynamicReferral.DynamicReferralId</td>
+                        <td>@dynamicReferral.ReferralName</td>
+                        <td>
+                            <a href="/ReferralForm/Form/@dynamicReferral.DynamicReferralId" class="btn btn-primary">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

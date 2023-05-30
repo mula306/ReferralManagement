@@ -1,0 +1,50 @@
+﻿@page "/ReferralForm/Form/{id:int}"
+@model ReferralManagement.Pages.ReferralFormModel
+@{
+    var schema = ViewData["Schema"] as Dictionary<string, object>;
+    var fields = schema["fields"] as Newtonsoft.Json.Linq.JArray;
+}
+<div class="overview">
+    <div class="title">
+        <h2 class="section--title">Referral Form - @Model.DynamicReferral.ReferralName</h2>
+    </div>
+    <div class="title">
+        <a href="/ReferralForm/Edit/@Model.DynamicReferral.DynamicReferralId" class="btn btn-primary">Edit Form</a>
+    </div>
+    <div class="form-edit">
+    <form method="post">
+        @foreach (var field in fields)
+        {
+        
+                <label for="@field["name"]">@field["label"]</label>
+
+                @switch (field["type"].ToString())
+                {
+                    case "text":
+                        <input type="text" id="@field["name"]" name="@field["name"]" class="form-control" />
+                        break;
+                    case "email":
+                        <input type="email" id="@field["name"]" name="@field["name"]" class="form-control" />
+                        break;
+                    case "tel":
+                        <input type="tel" id="@field["name"]" name="@field["name"]" class="form-control" />
+                        break;
+                    case "select":
+                        <select id="@field["name"]" name="@field["name"]" class="form-control">
+                            @foreach (var option in field["options"])
+                            {
+                                <option value="@option">@option</option>
+                            }
+                        </select>
+                        break;
+                    default:
+                        <input type="text" id="@field["name"]" name="@field["name"]" class="form-control" />
+                        break;
+                }
+        
+        }
+        <input type="submit" value="Submit Referral" class="btn btn-primary" />
+    </form>
+</div>
+</div>
+
