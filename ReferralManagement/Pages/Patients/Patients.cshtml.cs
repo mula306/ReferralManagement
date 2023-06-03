@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ReferralManagement.Model;
 using ReferralManagement.Services;
 
-namespace ReferralManagement.Pages
+namespace ReferralManagement.Pages.Patients
 {
     public class PatientModel : PageModel
     {

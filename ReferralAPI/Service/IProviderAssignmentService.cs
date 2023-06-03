@@ -2,5 +2,6 @@
 {
     public interface IProviderAssignmentService
     {
+        Task<int> GetProviderWithFewestReferrals(int specialtyId);
     }
 }

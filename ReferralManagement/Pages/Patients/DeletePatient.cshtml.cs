@@ -1,16 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ReferralManagement.Services;
 using ReferralManagement.Model;
+using ReferralManagement.Services;
 
 namespace ReferralManagement.Pages.Patients
 {
-    public class EditPatientModel : PageModel
+    public class DeletePatientModel : PageModel
     {
         private IPatientService _patientService;
         public Patient Patient { get; set; }
 
-        public EditPatientModel(IPatientService patientService)
+        public DeletePatientModel(IPatientService patientService)
         {
             _patientService = patientService;
         }
@@ -23,12 +23,11 @@ namespace ReferralManagement.Pages.Patients
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(Patient patient)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             // Call the PatientService to save the changes here
-            await _patientService.UpdatePatient(patient);
+            await _patientService.DeletePatient(id);
             return RedirectToPage("/Patients/Patients");
         }
     }
 }
-

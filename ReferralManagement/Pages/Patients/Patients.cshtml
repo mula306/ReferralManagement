@@ -1,10 +1,11 @@
 ﻿@page "/Patients"
-@model ReferralManagement.Pages.PatientModel
+@model ReferralManagement.Pages.Patients.PatientModel
 
 <div class="recent--patients">
     <div class="title">
         <h2 class="section--title">Recent Patients</h2>
     </div>
+    <a href="/Patient/Add" class="button"><i class="ri-add-line"></i>Add Patient</a>
     <div class="table">
         <table>
             <thead>
@@ -25,7 +26,10 @@
                         <td>@patient.FirstName</td>
                         <td>@patient.Gender</td>
                         <td>
-                            <a href="/Patient/Edit/@patient.PatientId" class="btn btn-primary">Edit</a>
+                            <span>
+                                <a href="/Patient/Edit/@patient.PatientId" class="ri-edit-line edit"></a>
+                                <a href="/Patient/Delete/@patient.PatientId" class="ri-delete-bin-line delete"></a>
+                            </span>
                         </td>
                     </tr>
                 }

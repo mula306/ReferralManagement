@@ -4,8 +4,9 @@
 }
 <div class="recent--patients">
     <div class="title">
-        <h2 class="section--title">Recent Patients</h2>
+        <h2 class="section--title">Referral Forms</h2>
     </div>
+    <a href="/ReferralForm/Add" class="button"><i class="ri-add-line"></i>New Referral Form</a>
     <div class="table">
         <table>
             <thead>
@@ -22,7 +23,11 @@
                         <td>@dynamicReferral.DynamicReferralId</td>
                         <td>@dynamicReferral.ReferralName</td>
                         <td>
-                            <a href="/ReferralForm/Form/@dynamicReferral.DynamicReferralId" class="btn btn-primary">Edit</a>
+                            <span>
+                                <a href="/ReferralForm/Edit/@dynamicReferral.DynamicReferralId" class="ri-edit-line edit"></a>
+                                <a href="/ReferralForm/Form/@dynamicReferral.DynamicReferralId" class="ri-survey-line"></a>
+                                <i class="ri-delete-bin-line delete"></i>
+                            </span>
                         </td>
                     </tr>
                 }

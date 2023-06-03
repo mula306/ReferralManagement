@@ -7,5 +7,6 @@ namespace ReferralManagement.Services
         Task<List<DynamicReferral>> GetDynamicReferrals();
         Task<DynamicReferral> GetDynamicReferralById(int id);
         Task UpdateDynamicReferral(DynamicReferral dynamic);
+        Task AddDynamicReferral(DynamicReferral dynamic);
     }
 }

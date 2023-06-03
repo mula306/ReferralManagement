@@ -42,15 +42,15 @@ namespace ReferralManagement.Services
         public async Task<Referral> GetReferralById(int id)
         {
             var endpoint = $"/api/Referral/{id}";
-            var patientList = await SendRequestAsync<Referral>(endpoint);
-            return patientList;
+            var referralList = await SendRequestAsync<Referral>(endpoint);
+            return referralList;
         }
 
         public async Task AddReferral(Referral referral)
         {
             var endpoint = $"/api/Referral";
-            var patientJson = JsonConvert.SerializeObject(referral);
-            var httpContent = new StringContent(patientJson, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(referral);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _client.PostAsync(endpoint, httpContent);
 
             if (!response.IsSuccessStatusCode)
@@ -62,8 +62,8 @@ namespace ReferralManagement.Services
         public async Task UpdateReferral(Referral referral)
         {
             var endpoint = $"/api/Referral/{referral.ReferralId}";
-            var patientJson = JsonConvert.SerializeObject(referral);
-            var httpContent = new StringContent(patientJson, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(referral);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _client.PutAsync(endpoint, httpContent);
 
             if (!response.IsSuccessStatusCode)

@@ -59,6 +59,19 @@ namespace ReferralManagement.Services
             }
         }
 
+        public async Task AddDynamicReferral(DynamicReferral dynamic)
+        {
+            var endpoint = $"/api/DynamicReferral";
+            var formJson = JsonConvert.SerializeObject(dynamic);
+            var httpContent = new StringContent(formJson, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(endpoint, httpContent);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle error response here or throw an exception
+            }
+        }
+
     }
 }
 

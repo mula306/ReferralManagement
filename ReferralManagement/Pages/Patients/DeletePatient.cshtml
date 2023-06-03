@@ -1,0 +1,13 @@
+﻿@page "/Patient/Delete/{id}"
+@model ReferralManagement.Pages.Patients.DeletePatientModel
+@{
+}
+<h1>Delete Confirmation</h1>
+
+<div class="alert alert-danger">
+    <h5>Are you sure you want to delete patient - @Model.Patient.FirstName @Model.Patient.LastName?</h5>
+    <form method="post">
+        <button type="submit" class="button">Yes</button>
+        <a asp-page="/Patients/Patients" class="button">No</a>
+    </form>
+</div>

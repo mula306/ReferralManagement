@@ -8,5 +8,7 @@ namespace ReferralManagement.Services
         Task<List<Patient>> GetPatients();
         Task<Patient> GetPatientById(int id);
         Task UpdatePatient(Patient patient);
+        Task AddPatient(Patient patient);
+        Task DeletePatient(int id);
     }
 }

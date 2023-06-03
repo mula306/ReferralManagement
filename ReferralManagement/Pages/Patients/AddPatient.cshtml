@@ -1,17 +1,15 @@
-﻿@page "/Patient/Edit/{id:int}"
-@model ReferralManagement.Pages.Patients.EditPatientModel
+﻿@page "/Patient/Add"
+@model ReferralManagement.Pages.Patients.AddPatientModel
 @{
     var patient = Model.Patient;
 }
 
 <div class="overview">
     <div class="title">
-        <h2 class="section--title">Edit Patient</h2>
+        <h2 class="section--title">Add Patient</h2>
     </div>
     <div class="form-edit">
         <form method="post">
-            <input type="hidden" asp-for="@patient.PatientId" />
-
             <label for="firstName">First Name</label>
             <input type="text" asp-for="@patient.FirstName" />
 
@@ -38,9 +36,7 @@
 
             <!-- Add inputs for other fields here -->
 
-            <input type="submit" value="Update" class="btn btn-primary" />
+            <input type="submit" value="Save" class="btn btn-primary" />
         </form>
     </div>
 </div>
-
-

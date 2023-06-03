@@ -49,9 +49,33 @@ namespace ReferralManagement.Services
         public async Task UpdatePatient(Patient patient)
         {
             var endpoint = $"/api/Patient/{patient.PatientId}";
-            var patientJson = JsonConvert.SerializeObject(patient);
-            var httpContent = new StringContent(patientJson, Encoding.UTF8, "application/json");
+            var json = JsonConvert.SerializeObject(patient);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _client.PutAsync(endpoint, httpContent);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle error response here or throw an exception
+            }
+        }
+
+        public async Task DeletePatient(int id)
+        {
+            var endpoint = $"/api/Patient/{id}";
+            var response = await _client.DeleteAsync(endpoint);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                // Handle error response here or throw an exception
+            }
+        }
+
+        public async Task AddPatient(Patient patient)
+        {
+            var endpoint = $"/api/Patient";
+            var json = JsonConvert.SerializeObject(patient);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _client.PostAsync(endpoint, httpContent);
 
             if (!response.IsSuccessStatusCode)
             {

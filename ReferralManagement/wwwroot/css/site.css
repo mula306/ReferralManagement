@@ -386,8 +386,8 @@ a {
     gap: 30px;
 }
 
-.add {
-    display: flex;
+.button {
+    display:inline-flex;
     align-items: center;
     padding: 5px 10px;
     outline: none;
@@ -398,6 +398,21 @@ a {
     cursor: pointer;
     transition: .3s;
 }
+
+.add {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    background-color: #5073fb;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
 
     .add:hover {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -620,10 +635,16 @@ th {
     background-color: #fff;
 }
 
-.form-edit form {
-    display: grid;
-    grid-gap: 20px;
-}
+    .form-edit .form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-edit form {
+        display: grid;
+        grid-gap: 20px;
+        /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));*/
+    }
 
 .form-edit label {
     font-size: 1rem;

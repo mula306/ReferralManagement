@@ -4,7 +4,7 @@
     <div class="title">
         <h2 class="section--title">Recent Referrals</h2>
     </div>
-    <a href="/Referral/Add" class="btn btn-primary">Add Referral</a>
+    <a href="/Referral/Add" class="button"><i class="ri-add-line"></i>Add Referral</a>
     <div class="table">
         <table>
             <thead>
@@ -31,7 +31,10 @@
                         <td>@referral.SpecailtyId</td>
                         <td>@referral.Status</td>
                         <td>
-                            <a href="/Referral/Edit/@referral.ReferralId" class="btn btn-primary">Edit</a>
+                            <span>
+                                <a href="/Referral/Edit/@referral.ReferralId" class="ri-edit-line edit"></a>
+                                <i class="ri-delete-bin-line delete"></i>
+                            </span>
                         </td>
                     </tr>
                 }

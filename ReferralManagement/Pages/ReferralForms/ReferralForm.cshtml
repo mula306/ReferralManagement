@@ -9,13 +9,13 @@
         <h2 class="section--title">Referral Form - @Model.DynamicReferral.ReferralName</h2>
     </div>
     <div class="title">
-        <a href="/ReferralForm/Edit/@Model.DynamicReferral.DynamicReferralId" class="btn btn-primary">Edit Form</a>
+        <a href="/ReferralForm/Edit/@Model.DynamicReferral.DynamicReferralId" class="button">Edit Form</a>
     </div>
     <div class="form-edit">
     <form method="post">
         @foreach (var field in fields)
         {
-        
+            <div class="form-group">
                 <label for="@field["name"]">@field["label"]</label>
 
                 @switch (field["type"].ToString())
@@ -29,6 +29,20 @@
                     case "tel":
                         <input type="tel" id="@field["name"]" name="@field["name"]" class="form-control" />
                         break;
+                    case "radio":
+                        foreach (var option in field["options"])
+                        {
+                            <input type="radio" id="@option" name="@field["name"]" value="@option" class="form-check-input" />
+                            <label for="@option">@option</label>
+                        }
+                        break;
+                    case "checkbox":
+                        foreach (var option in field["options"])
+                        {
+                            <input type="checkbox" id="@option" name="@field["name"]" value="@option" class="form-check-input" />
+                            <label for="@option">@option</label>
+                        }
+                        break;
                     case "select":
                         <select id="@field["name"]" name="@field["name"]" class="form-control">
                             @foreach (var option in field["options"])
@@ -41,6 +55,7 @@
                         <input type="text" id="@field["name"]" name="@field["name"]" class="form-control" />
                         break;
                 }
+                </div>
         
         }
         <input type="submit" value="Submit Referral" class="btn btn-primary" />
