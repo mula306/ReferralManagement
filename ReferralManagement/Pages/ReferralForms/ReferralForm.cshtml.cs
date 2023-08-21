@@ -32,11 +32,11 @@ namespace ReferralManagement.Pages
             //}
 
             // Deserialize the JSON to an object
-            JObject jObject = JObject.Parse(DynamicReferral.ReferralJson);
-            Dictionary<string, object> schema = jObject.ToObject<Dictionary<string, object>>();
+            //JObject jObject = JObject.Parse(DynamicReferral.ReferralJson);
+            //Dictionary<string, object> schema = jObject.ToObject<Dictionary<string, object>>();
 
-            // Set the schema in ViewData
-            ViewData["Schema"] = schema;
+            //// Set the schema in ViewData
+            //ViewData["Schema"] = schema;
 
             return Page();
         }
