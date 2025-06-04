@@ -13,3 +13,37 @@ This is a razor pages project that is responsible for referral management tasks.
 
 
 
+
+## Building the Solution
+To compile all projects run:
+```
+dotnet build ReferralManagement.sln
+```
+This requires the [.NET 7 SDK](https://dotnet.microsoft.com/download).
+
+## Applying Database Migrations
+The API uses Entity Framework Core with migrations stored in `ReferralAPI/Migrations`.
+Run the following commands inside the `ReferralAPI` directory:
+```
+cd ReferralAPI
+# ensure the EF Core tools are available
+dotnet tool restore
+dotnet ef database update
+cd ..
+```
+This creates the SQLite database defined in `appsettings.json`.
+
+## Running the Applications
+Start the API and Razor Pages apps in separate terminals.
+
+**Run the API**
+```
+dotnet run --project ReferralAPI/ReferralAPI.csproj
+```
+By default it listens on `https://localhost:7227`.
+
+**Run the Razor Pages app**
+```
+dotnet run --project ReferralManagement/ReferralManagement.csproj
+```
+This application expects the API to be running and will open on `https://localhost:7203`.
