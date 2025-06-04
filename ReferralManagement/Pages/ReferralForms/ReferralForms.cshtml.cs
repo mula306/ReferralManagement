@@ -8,7 +8,7 @@ namespace ReferralManagement.Pages
     public class ReferralFormsModel : PageModel
     {
         private readonly IDynamicReferralService _dynamicReferralService;
-        // Add other properties for player stats as needed
+        // Add other properties as needed for the page
 
         public ReferralFormsModel(IDynamicReferralService dynamicReferralService)
         {
