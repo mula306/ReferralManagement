@@ -9,11 +9,21 @@ namespace ReferralManagement.Pages
     {
         private IReferralService _referralService;
         // Add other properties for player stats as needed
-        public Referral Referral { get; set; }
+        public Referral Referral { get; set; } = new Referral();
 
         public AddReferralModel(IReferralService referralService)
         {
             _referralService = referralService;
+        }
+
+        public IActionResult OnGet()
+        {
+            // Initialize a new referral so the razor page has non-null values
+            Referral = new Referral
+            {
+                ReferralDate = DateTime.Today
+            };
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(Referral referral)
