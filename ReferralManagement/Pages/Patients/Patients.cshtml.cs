@@ -8,7 +8,7 @@ namespace ReferralManagement.Pages.Patients
     public class PatientModel : PageModel
     {
         private readonly IPatientService _patientService;
-        // Add other properties for player stats as needed
+        // Add other properties as needed for the page
 
         public PatientModel(IPatientService patientService)
         {

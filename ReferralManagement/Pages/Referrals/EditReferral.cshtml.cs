@@ -8,7 +8,7 @@ namespace ReferralManagement.Pages
     public class EditReferralModel : PageModel
     {
         private IReferralService _referralService;
-        // Add other properties for player stats as needed
+        // Add other properties as needed for the page
         public Referral Referral { get; set; }
 
         public EditReferralModel(IReferralService referralService)

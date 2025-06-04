@@ -8,7 +8,7 @@ namespace ReferralManagement.Pages.Ref
     public class ReferralsModel : PageModel
     {
         private readonly IReferralService _ReferralService;
-        // Add other properties for player stats as needed
+        // Add other properties as needed for the page
 
         public ReferralsModel(IReferralService ReferralService)
         {
